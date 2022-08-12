@@ -1,0 +1,17 @@
+[versions]
+springBoot = "2.7.2"
+springCloud = "2021.0.3"
+pagehelper = "1.4.3"
+mybatisPlus = "3.5.2"
+googleFindbugs = "3.0.1"
+oauth2Authorization = "0.3.1"
+
+[libraries]
+spring-cloud-dependencies = { group = "org.springframework.cloud", name = "spring-cloud-dependencies", version.ref = "springCloud" }
+pagehelper-starter = { group = "com.github.pagehelper", name = "pagehelper-spring-boot-starter", version.ref = "pagehelper" }
+mybatis-plus-starter = { group = "com.baomidou", name = "mybatis-plus-boot-starter", version.ref = "mybatisPlus" }
+google-findbugs = { group = "com.google.code.findbugs", name = "annotations", version.ref = "googleFindbugs" }
+oauth2-authorization-server = { group = "org.springframework.security", name = "spring-security-oauth2-authorization-server", version.ref = "oauth2Authorization" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "springBoot" }

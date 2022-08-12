@@ -7,7 +7,7 @@ val gradleModuleProjects = subprojects.filter {
     it.buildFile.exists()
 }.toSet() - bom
 val commonModuleProjects = gradleModuleProjects.filter {
-    it.name.endsWith("-common") || it.name.endsWith("-starter") || it.name.endsWith("-api")
+    it.name.startsWith("microservice-common-") || it.name.endsWith("-api")
 }.toSet()
 val springModuleProjects = gradleModuleProjects - commonModuleProjects
 
@@ -27,7 +27,7 @@ configure(gradleModuleProjects) {
     apply(plugin = "com.livk.module")
 
     dependencies {
-        management(platform(project(":livk-cloud-dependencies")))
+        management(platform(project(":microservice-dependencies")))
         provider("org.projectlombok:lombok")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation("org.springframework:spring-tx")

@@ -1,5 +1,6 @@
 # livk microservice
 
-> 命名规则 </p>
-> 普通jar项目以 -common，-starter，-api结尾 </p>
-> SpringBoot项目避开上述结尾即可 </p>
+> provider 仅编译和注解处理器 </br>
+> optional 仅编译和运行 </br>
+> api 添加依赖并传递 </br>
+> implementation 添加依赖不传递 </br>

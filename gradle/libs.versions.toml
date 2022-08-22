@@ -1,5 +1,6 @@
 [versions]
-springBoot = "2.7.2"
+springBoot = "2.7.3"
+springBootAdmin = "2.7.3"
 springCloud = "2021.0.3"
 pagehelper = "1.4.3"
 mybatisPlus = "3.5.2"
@@ -9,9 +10,11 @@ oauth2Authorization = "0.3.1"
 redisson = "3.17.4"
 mapstruct = "1.5.2.Final"
 mapstructLombok = "0.2.0"
+springdoc = "1.6.9"
 
 [libraries]
 spring-cloud-dependencies = { group = "org.springframework.cloud", name = "spring-cloud-dependencies", version.ref = "springCloud" }
+spring-boot-admin-dependencies = { group = "de.codecentric", name = "spring-boot-admin-dependencies", version.ref = "springBootAdmin" }
 pagehelper-starter = { group = "com.github.pagehelper", name = "pagehelper-spring-boot-starter", version.ref = "pagehelper" }
 mybatis-plus-starter = { group = "com.baomidou", name = "mybatis-plus-boot-starter", version.ref = "mybatisPlus" }
 google-findbugs = { group = "com.google.code.findbugs", name = "annotations", version.ref = "googleFindbugs" }
@@ -21,6 +24,11 @@ redisson-starter = { group = "org.redisson", name = "redisson-spring-boot-starte
 mapstruct = { group = "org.mapstruct", name = "mapstruct", version.ref = "mapstruct" }
 mapstruct-processor = { group = "org.mapstruct", name = "mapstruct-processor", version.ref = "mapstruct" }
 lombok-mapstruct = { group = "org.projectlombok", name = "lombok-mapstruct-binding", version.ref = "mapstructLombok" }
+springdoc-openapi-ui = { group = "org.springdoc", name = "springdoc-openapi-ui", version.ref = "springdoc" }
+springdoc-openapi-webflux-ui = { group = "org.springdoc", name = "springdoc-openapi-webflux-ui", version.ref = "springdoc" }
+
+[bundles]
+mapstruct-lombok = ["mapstruct-processor", "lombok-mapstruct"]
 
 [plugins]
 spring-boot = { id = "org.springframework.boot", version.ref = "springBoot" }

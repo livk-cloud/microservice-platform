@@ -21,6 +21,10 @@ configure(commonModuleProjects) {
 
 configure(springModuleProjects) {
     apply(plugin = "com.livk.service")
+
+    dependencies {
+        implementation("org.springframework.cloud:spring-cloud-starter-consul-discovery")
+    }
 }
 
 configure(gradleModuleProjects) {

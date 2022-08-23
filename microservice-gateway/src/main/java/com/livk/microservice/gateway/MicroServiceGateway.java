@@ -1,6 +1,6 @@
 package com.livk.microservice.gateway;
 
-import com.livk.common.core.Spring;
+import com.livk.common.core.SpringBoot;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
@@ -14,6 +14,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MicroServiceGateway {
     public static void main(String[] args) {
-        Spring.run(MicroServiceGateway.class, args);
+        SpringBoot.run(MicroServiceGateway.class, args);
     }
 }

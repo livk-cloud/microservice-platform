@@ -1,0 +1,39 @@
+server:
+  port: 9699
+
+spring:
+  redis:
+    host: ${REDIS_HOST:livk.com}
+    password: 123456
+  boot:
+    admin:
+      instance-auth:
+        default-user-name: ${spring.security.user.name}
+        default-password: ${spring.security.user.password}
+      discovery:
+        ignored-services: consul
+  security:
+    user:
+      name: microservice
+      password: 123456
+  application:
+    name: microservice-monitor
+  cloud:
+    consul:
+      discovery:
+        metadata:
+          user-name: ${spring.security.user.name}
+          user-password: ${spring.security.user.password}
+        service-name: ${spring.application.name}
+        heartbeat:
+          enabled: true
+      host: ${CONSUL_HOST:livk.com}
+      port: ${CONSUL_PORT:8500}
+  profiles:
+    active: dev
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

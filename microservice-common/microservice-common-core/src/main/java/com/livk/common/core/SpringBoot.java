@@ -17,7 +17,7 @@ import org.springframework.core.annotation.AnnotationConfigurationException;
  * @date 2022/8/12
  */
 @UtilityClass
-public class Spring {
+public class SpringBoot {
 
     private SpringApplication application;
 

@@ -17,6 +17,11 @@ configure(bom) {
 
 configure(commonModuleProjects) {
     apply(plugin = "com.livk.common")
+
+    dependencies {
+        provider("org.springframework.boot:spring-boot-configuration-processor")
+        provider("org.springframework.boot:spring-boot-autoconfigure-processor")
+    }
 }
 
 configure(springModuleProjects) {
@@ -26,6 +31,7 @@ configure(springModuleProjects) {
         implementation("org.springframework.boot:spring-boot-starter-actuator")
         implementation("org.springframework.cloud:spring-cloud-starter-consul-discovery")
         implementation("org.springframework.cloud:spring-cloud-starter-bootstrap")
+        optional("org.springframework.boot:spring-boot-devtools")
     }
 }
 

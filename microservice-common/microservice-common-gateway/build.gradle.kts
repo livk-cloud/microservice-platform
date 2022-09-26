@@ -2,5 +2,6 @@ description = "microservice "
 
 dependencies {
     api(project(":microservice-common:microservice-common-redis"))
-    optional("org.springframework.cloud:spring-cloud-gateway-server")
+    api("com.github.ben-manes.caffeine:caffeine")
+    optional("org.springframework.cloud:spring-cloud-starter-gateway")
 }

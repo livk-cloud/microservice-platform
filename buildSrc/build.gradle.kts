@@ -1,6 +1,8 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("java-gradle-plugin")
-    kotlin("jvm") version "1.7.10"
+    kotlin("jvm") version "1.8.0"
 }
 
 repositories {
@@ -13,6 +15,13 @@ val bootVersion: String = libs.versions.springBoot.get()
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-gradle-plugin:$bootVersion")
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        freeCompilerArgs = listOf("-Xjsr305=strict")
+        jvmTarget = "17"
+    }
 }
 
 gradlePlugin {

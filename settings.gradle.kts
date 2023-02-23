@@ -7,7 +7,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = "livk-microservice"
+rootProject.name = "spring-microservice-platform"
 
 fileTree(rootDir) {
     val excludes = gradle.startParameter.projectProperties["excludeProjects"]?.split(",")

@@ -17,7 +17,6 @@ import java.util.concurrent.TimeUnit
  * </p>
  *
  * @author livk
- * @date 2022/7/7
  */
 abstract class BootPlugin : Plugin<Project> {
     override fun apply(project: Project) {

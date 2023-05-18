@@ -1,9 +1,6 @@
 package com.livk.common.core.result;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.livk.common.core.constant.CommonConstant;
-import lombok.Getter;
 
 /**
  * <p>
@@ -11,25 +8,8 @@ import lombok.Getter;
  * </p>
  *
  * @author livk
- * @date 2022/8/15
  */
-@Getter
-public class R<T> {
-
-    private final int code;
-
-    private final String msg;
-
-    private final T data;
-
-    @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
-    public R(@JsonProperty("code") int code,
-             @JsonProperty("msg") String msg,
-             @JsonProperty("data") T data) {
-        this.code = code;
-        this.msg = msg;
-        this.data = data;
-    }
+public record R<T>(int code, String msg, T data) {
 
     public static R<Void> ok() {
         return ok(null);

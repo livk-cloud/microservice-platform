@@ -12,7 +12,6 @@ import org.gradle.util.GradleVersion
  * </p>
  *
  * @author livk
- * @date 2022/7/7
  */
 abstract class ManifestPlugin : Plugin<Project> {
     override fun apply(project: Project) {

@@ -10,7 +10,6 @@ import javax.annotation.Nonnull;
  * </p>
  *
  * @author livk
- * @date 2022/8/15
  */
 public class JdkRedisSerializationContext implements RedisSerialization<Object> {
 

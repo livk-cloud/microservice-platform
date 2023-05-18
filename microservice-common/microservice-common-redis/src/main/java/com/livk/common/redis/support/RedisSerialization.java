@@ -11,7 +11,6 @@ import javax.annotation.Nonnull;
  * </p>
  *
  * @author livk
- * @date 2022/8/15
  */
 public interface RedisSerialization<V> extends RedisSerializationContext<String, V> {
 

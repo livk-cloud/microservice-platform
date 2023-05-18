@@ -10,7 +10,6 @@ import org.springframework.boot.diagnostics.FailureAnalysis;
  * </p>
  *
  * @author livk
- * @date 2022/3/14
  */
 public class RouteCheckFailureAnalyzer extends AbstractFailureAnalyzer<RouteCheckException> {
 

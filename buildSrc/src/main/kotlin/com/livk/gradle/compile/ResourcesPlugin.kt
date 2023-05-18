@@ -11,7 +11,6 @@ import org.gradle.api.plugins.JavaPlugin
  * </p>
  *
  * @author livk
- * @date 2022/7/7
  */
 abstract class ResourcesPlugin : Plugin<Project> {
     override fun apply(project: Project) {

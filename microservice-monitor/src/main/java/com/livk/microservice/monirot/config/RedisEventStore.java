@@ -1,11 +1,12 @@
 package com.livk.microservice.monirot.config;
 
-import com.livk.common.redis.support.MicroReactiveRedisTemplate;
+import com.livk.common.redis.support.ReactiveRedisOps;
 import de.codecentric.boot.admin.server.domain.events.InstanceEvent;
 import de.codecentric.boot.admin.server.domain.values.InstanceId;
 import de.codecentric.boot.admin.server.eventstore.ConcurrentMapEventStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.ReactiveHashOperations;
+import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
@@ -19,7 +20,6 @@ import java.util.concurrent.ConcurrentHashMap;
  * </p>
  *
  * @author livk
- * @date 2022/8/23
  */
 @Component
 public class RedisEventStore extends ConcurrentMapEventStore {
@@ -29,13 +29,13 @@ public class RedisEventStore extends ConcurrentMapEventStore {
     private final ReactiveHashOperations<String, String, List<InstanceEvent>> hashOperations;
 
     @Autowired
-    public RedisEventStore(MicroReactiveRedisTemplate reactiveRedisTemplate) {
-        this(reactiveRedisTemplate, 100);
+    public RedisEventStore(ReactiveRedisOps reactiveRedisOps) {
+        this(reactiveRedisOps, 100);
     }
 
-    public RedisEventStore(MicroReactiveRedisTemplate reactiveRedisTemplate, int maxLogSizePerAggregate) {
+    public RedisEventStore(ReactiveRedisOps reactiveRedisOps, int maxLogSizePerAggregate) {
         super(maxLogSizePerAggregate, new ConcurrentHashMap<>());
-        hashOperations = reactiveRedisTemplate.opsForHash();
+        hashOperations = reactiveRedisOps.opsForHash();
     }
 
     @Nonnull

@@ -1,34 +1,11 @@
 [versions]
-springBoot = "3.0.2"
-springBootAdmin = "3.0.0"
-springCloud = "2022.0.1"
-pagehelper = "1.4.6"
-mybatisPlus = "3.5.3"
-guava = "31.1-jre"
-googleFindbugs = "3.0.1"
-oauth2Authorization = "1.0.0"
-redisson = "3.19.3"
-mapstruct = "1.5.3.Final"
-mapstructLombok = "0.2.0"
-springdoc = "2.0.2"
+kotlin = "1.8.20"
+spring-boot = "3.0.6"
+spring-cloud = "2022.0.2"
+spring-extension = "1.0.6"
+mybatis-plus = "3.5.3.1"
 
 [libraries]
-spring-cloud-dependencies = { group = "org.springframework.cloud", name = "spring-cloud-dependencies", version.ref = "springCloud" }
-spring-boot-admin-dependencies = { group = "de.codecentric", name = "spring-boot-admin-dependencies", version.ref = "springBootAdmin" }
-springdoc-openapi-dependencies = { group = "org.springdoc", name = "springdoc-openapi", version.ref = "springdoc" }
-pagehelper-starter = { group = "com.github.pagehelper", name = "pagehelper-spring-boot-starter", version.ref = "pagehelper" }
-mybatis-plus-starter = { group = "com.baomidou", name = "mybatis-plus-boot-starter", version.ref = "mybatisPlus" }
-google-findbugs = { group = "com.google.code.findbugs", name = "annotations", version.ref = "googleFindbugs" }
-guava = { group = "com.google.guava", name = "guava", version.ref = "guava" }
-oauth2-authorization-server = { group = "org.springframework.security", name = "spring-security-oauth2-authorization-server", version.ref = "oauth2Authorization" }
-redisson-starter = { group = "org.redisson", name = "redisson-spring-boot-starter", version.ref = "redisson" }
-mapstruct = { group = "org.mapstruct", name = "mapstruct", version.ref = "mapstruct" }
-mapstruct-processor = { group = "org.mapstruct", name = "mapstruct-processor", version.ref = "mapstruct" }
-lombok-mapstruct = { group = "org.projectlombok", name = "lombok-mapstruct-binding", version.ref = "mapstructLombok" }
-
-
-[bundles]
-mapstruct-lombok = ["mapstruct-processor", "lombok-mapstruct"]
-
-[plugins]
-spring-boot = { id = "org.springframework.boot", version.ref = "springBoot" }
+spring-cloud-dependencies = { module = "org.springframework.cloud:spring-cloud-dependencies", version.ref = "spring-cloud" }
+mybatis-plus-starter = { module = "com.baomidou:mybatis-plus-boot-starter", version.ref = "mybatis-plus" }
+spring-extension-dependencies = { module = "io.github.livk-cloud:spring-extension-dependencies", version.ref = "spring-extension" }

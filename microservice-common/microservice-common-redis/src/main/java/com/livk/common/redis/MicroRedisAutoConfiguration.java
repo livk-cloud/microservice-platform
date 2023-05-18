@@ -1,7 +1,8 @@
 package com.livk.common.redis;
 
-import com.livk.common.redis.support.MicroReactiveRedisTemplate;
-import com.livk.common.redis.support.MicroRedisTemplate;
+import com.livk.auto.service.annotation.SpringAutoService;
+import com.livk.common.redis.support.ReactiveRedisOps;
+import com.livk.common.redis.support.RedisOps;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -14,18 +15,18 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
  * </p>
  *
  * @author livk
- * @date 2022/8/23
  */
+@SpringAutoService
 @AutoConfiguration(before = RedisAutoConfiguration.class)
 public class MicroRedisAutoConfiguration {
 
     @Bean
-    public MicroRedisTemplate microRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
-        return new MicroRedisTemplate(redisConnectionFactory);
+    public RedisOps redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+        return new RedisOps(redisConnectionFactory);
     }
 
     @Bean
-    public MicroReactiveRedisTemplate microReactiveRedisTemplate(ReactiveRedisConnectionFactory redisConnectionFactory) {
-        return new MicroReactiveRedisTemplate(redisConnectionFactory);
+    public ReactiveRedisOps reactiveRedisOps(ReactiveRedisConnectionFactory redisConnectionFactory) {
+        return new ReactiveRedisOps(redisConnectionFactory);
     }
 }

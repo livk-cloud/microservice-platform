@@ -11,7 +11,6 @@ import org.springframework.cloud.gateway.route.RouteDefinition;
  * </p>
  *
  * @author livk
- * @date 2021/11/2
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

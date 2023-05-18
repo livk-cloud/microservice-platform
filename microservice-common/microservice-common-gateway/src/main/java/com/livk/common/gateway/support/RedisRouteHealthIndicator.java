@@ -1,11 +1,11 @@
 package com.livk.common.gateway.support;
 
-import com.livk.common.core.function.Present;
-import com.livk.common.redis.support.MicroReactiveRedisTemplate;
+import com.livk.common.redis.support.ReactiveRedisOps;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.actuate.health.AbstractHealthIndicator;
+import org.springframework.boot.actuate.health.AbstractReactiveHealthIndicator;
 import org.springframework.boot.actuate.health.Health;
+import reactor.core.publisher.Mono;
 
 /**
  * <p>
@@ -13,21 +13,23 @@ import org.springframework.boot.actuate.health.Health;
  * </p>
  *
  * @author livk
- * @date 2021/11/3
  */
 @Slf4j
 @RequiredArgsConstructor
-public class RedisRouteHealthIndicator extends AbstractHealthIndicator {
+public class RedisRouteHealthIndicator extends AbstractReactiveHealthIndicator {
 
-    private final MicroReactiveRedisTemplate reactiveRedisTemplate;
+    private final ReactiveRedisOps reactiveRedisOps;
 
     @Override
-    protected void doHealthCheck(Health.Builder builder) {
-        reactiveRedisTemplate.hasKey(MicroRedisRouteDefinitionRepository.ROUTE_KEY)
-                .subscribe(exit -> Present.handler(exit, Boolean.TRUE::equals).present(bool -> builder.up(), () -> {
-                    log.warn("Redis路由信息丢失！");
-                    builder.down();
-                }));
+    protected Mono<Health> doHealthCheck(Health.Builder builder) {
+        return reactiveRedisOps.hasKey(MicroRedisRouteDefinitionRepository.ROUTE_KEY)
+                .map(bool -> {
+                    if (bool) {
+                        return builder.up();
+                    } else {
+                        log.warn("Redis路由信息丢失！");
+                        return builder.down();
+                    }
+                }).map(Health.Builder::build);
     }
-
 }

@@ -1,18 +1,12 @@
-val versionCatalog = rootProject.extensions
-    .getByType(VersionCatalogsExtension::class.java)
-    .named("libs")
-val bom = versionCatalog.libraryAliases
-    .filter { it.endsWith("dependencies") || it.endsWith("bom") }
-val dependency = versionCatalog.libraryAliases - bom.toSet()
+plugins {
+    com.livk.bom
+}
 
 dependencies {
     api(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
-    get(bom).forEach { api(platform(it)) }
+    api(platform(libs.spring.extension.dependencies))
+    api(platform(libs.spring.cloud.dependencies))
     constraints {
-        get(dependency).forEach { api(it) }
+        api(libs.mybatis.plus.starter)
     }
-}
-
-fun get(dependencyNames: Collection<String>): Collection<String> {
-    return dependencyNames.map { versionCatalog.findLibrary(it).get().get().toString() }
 }

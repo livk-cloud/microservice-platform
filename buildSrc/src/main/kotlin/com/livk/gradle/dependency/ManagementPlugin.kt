@@ -14,7 +14,6 @@ import org.gradle.api.publish.maven.plugins.MavenPublishPlugin
  * </p>
  *
  * @author livk
- * @date 2022/7/8
  */
 abstract class ManagementPlugin : Plugin<Project> {
     companion object {

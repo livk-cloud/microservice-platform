@@ -10,7 +10,6 @@ import org.gradle.api.Project
  * </p>
  *
  * @author livk
- * @date 2022/8/10
  */
 class ModulePlugin : Plugin<Project> {
     override fun apply(project: Project) {

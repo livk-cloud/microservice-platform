@@ -14,7 +14,6 @@ import org.gradle.api.Project
  * </p>
  *
  * @author livk
- * @date 2022/12/19
  */
 class CorePlugin : Plugin<Project> {
     override fun apply(project: Project) {

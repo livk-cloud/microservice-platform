@@ -1,4 +1,0 @@
-org.springframework.context.ApplicationContextInitializer=\
-  com.livk.common.core.BannerSettingHandler
-com.livk.common.core.http.annotation.EnableWebClient=\
-  com.livk.common.core.http.WebClientAutoConfiguration

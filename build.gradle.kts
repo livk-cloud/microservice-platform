@@ -1,5 +1,5 @@
 plugins {
-    id("com.livk.root")
+    com.livk.root
 }
 
 val bom = setOf(project(":microservice-dependencies"))
@@ -11,12 +11,12 @@ val commonModuleProjects = gradleModuleProjects.filter {
 }.toSet()
 val springModuleProjects = gradleModuleProjects - commonModuleProjects
 
-configure(bom) {
-    apply(plugin = "com.livk.bom")
-}
-
 configure(commonModuleProjects) {
     apply(plugin = "com.livk.common")
+
+    dependencies {
+        compileProcessor("io.github.livk-cloud:spring-auto-service")
+    }
 }
 
 configure(springModuleProjects) {

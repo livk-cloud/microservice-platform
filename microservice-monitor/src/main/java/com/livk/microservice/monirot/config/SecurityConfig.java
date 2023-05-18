@@ -13,7 +13,6 @@ import org.springframework.security.web.authentication.SavedRequestAwareAuthenti
  * </p>
  *
  * @author livk
- * @date 2022/8/23
  */
 @EnableWebSecurity
 public class SecurityConfig {
@@ -28,11 +27,10 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         SavedRequestAwareAuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();
         successHandler.setTargetUrlParameter("redirectTo");
-        // 静态资源和登录页面可以不用认证
-        return http.authorizeRequests()
-                .antMatchers(adminContextPath + "/assets/**")
+        return http.authorizeHttpRequests()
+                .requestMatchers(adminContextPath + "/assets/**")
                 .permitAll()
-                .antMatchers(adminContextPath + "/login")
+                .requestMatchers(adminContextPath + "/login")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

@@ -6,7 +6,6 @@ package com.livk.common.core.constant;
  * </p>
  *
  * @author livk
- * @date 2022/8/15
  */
 public interface CommonConstant {
     Integer SUCCESS_CODE = 200;

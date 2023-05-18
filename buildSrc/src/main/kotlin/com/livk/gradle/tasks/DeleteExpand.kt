@@ -11,11 +11,10 @@ import org.gradle.language.base.plugins.LifecycleBasePlugin
  * </p>
  *
  * @author livk
- * @date 2022/7/11
  */
 abstract class DeleteExpand : Plugin<Project> {
     companion object {
-        private val CLEAN_ALL_TASK_NAME = "cleanAll"
+        private const val CLEAN_ALL_TASK_NAME = "cleanAll"
     }
 
     override fun apply(project: Project) {

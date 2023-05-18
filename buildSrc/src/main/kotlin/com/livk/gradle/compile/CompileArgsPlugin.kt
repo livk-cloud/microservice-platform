@@ -1,6 +1,5 @@
 package com.livk.gradle.compile
 
-import com.livk.gradle.info.ManifestPlugin
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -14,14 +13,13 @@ import org.gradle.api.tasks.testing.Test
  * </p>
  *
  * @author livk
- * @date 2022/7/7
  */
 abstract class CompileArgsPlugin : Plugin<Project> {
     companion object {
         val COMPILER_ARGS = ArrayList<String>()
         val MAPSTRUCT_COMPILER_ARGS = ArrayList<String>()
-        val MAPSTRUCT_PROCESSOR_NAME = "mapstruct-processor"
-        val UTF_8 = "UTF-8"
+        const val MAPSTRUCT_PROCESSOR_NAME = "mapstruct-processor"
+        const val UTF_8 = "UTF-8"
 
         init {
             COMPILER_ARGS.addAll(
@@ -61,7 +59,7 @@ abstract class CompileArgsPlugin : Plugin<Project> {
         }
     }
 
-    fun addCompile(javaCompile: JavaCompile) {
+    private fun addCompile(javaCompile: JavaCompile) {
         javaCompile.options.compilerArgs.addAll(COMPILER_ARGS)
         javaCompile.options.encoding = UTF_8
         javaCompile.sourceCompatibility = JavaVersion.VERSION_17.toString()

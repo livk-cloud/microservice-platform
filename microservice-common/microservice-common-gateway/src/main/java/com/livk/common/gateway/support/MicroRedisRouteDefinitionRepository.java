@@ -2,7 +2,7 @@ package com.livk.common.gateway.support;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
-import com.livk.common.redis.support.MicroReactiveRedisTemplate;
+import com.livk.common.redis.support.ReactiveRedisOps;
 import com.livk.common.redis.support.RedisSerialization;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.route.RouteDefinition;
@@ -23,7 +23,6 @@ import java.util.Map;
  * </p>
  *
  * @author livk
- * @date 2021/12/28
  */
 @Slf4j
 public class MicroRedisRouteDefinitionRepository implements RouteDefinitionRepository {
@@ -34,7 +33,7 @@ public class MicroRedisRouteDefinitionRepository implements RouteDefinitionRepos
 
     private final ReactiveHashOperations<String, String, RouteDefinition> reactiveHashOperations;
 
-    public MicroRedisRouteDefinitionRepository(MicroReactiveRedisTemplate reactiveRedisTemplate) {
+    public MicroRedisRouteDefinitionRepository(ReactiveRedisOps reactiveRedisTemplate) {
         reactiveHashOperations = reactiveRedisTemplate.opsForHash(RedisSerialization.json(RouteDefinition.class));
         caffeineCache = Caffeine.newBuilder().initialCapacity(128).maximumSize(1024).build();
     }

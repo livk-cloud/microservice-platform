@@ -6,7 +6,6 @@ package com.livk.common.gateway.exception;
  * </p>
  *
  * @author livk
- * @date 2022/3/14
  */
 public class RouteCheckException extends RuntimeException {
 

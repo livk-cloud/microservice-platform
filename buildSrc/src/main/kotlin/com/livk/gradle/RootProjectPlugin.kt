@@ -11,7 +11,6 @@ import org.gradle.api.tasks.bundling.Jar
  * </p>
  *
  * @author livk
- * @date 2022/8/10
  */
 class RootProjectPlugin : Plugin<Project> {
     override fun apply(project: Project) {

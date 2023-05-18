@@ -9,7 +9,6 @@ import org.springframework.cloud.bus.event.RemoteApplicationEvent;
  * </p>
  *
  * @author livk
- * @date 2022/9/26
  */
 public class RouteRemoteEvent extends RemoteApplicationEvent {
 
